@@ -1,0 +1,9 @@
+.cache
+**/*.d.ts
+**/public/*
+content
+node_modules
+public
+static
+**/_this_is_virtual_fs_path_/**
+**/.cache/**/*
