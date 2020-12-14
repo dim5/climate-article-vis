@@ -1,12 +1,11 @@
 import NerSumData from '../data/ner-sum.json';
 
 import React, { useState } from 'react';
-import { Select } from 'antd';
+import { Select, Spin } from 'antd';
 import styled from 'styled-components/macro';
 
 import TimeSeries from './time-series';
 import NerCounts from './ner-count';
-import NerGraph from './ner-graph';
 
 const VisContainer = styled.div`
   display: grid;
@@ -21,6 +20,8 @@ const SelectMenu = styled(Select)`
   justify-self: center;
   min-width: 40%;
 `;
+
+const LazyGraph = React.lazy(() => import('./ner-graph'));
 
 const NerVisualizer = () => {
   const [selectedEntities, setSelectedEntityList] = useState([
@@ -66,11 +67,21 @@ const NerVisualizer = () => {
         `}
       />
 
-      <NerGraph
-        css={`
-          grid-column-start: span 2;
-        `}
-      />
+      <React.Suspense
+        fallback={
+          <Spin
+            css={`
+              grid-column-start: span 2;
+            `}
+          />
+        }
+      >
+        <LazyGraph
+          css={`
+            grid-column-start: span 2;
+          `}
+        />
+      </React.Suspense>
     </VisContainer>
   );
 };
