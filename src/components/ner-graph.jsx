@@ -4,9 +4,17 @@ import ForceGraph3D from 'react-force-graph-3d';
 import styled, { css } from 'styled-components/macro';
 import { Radio } from 'antd';
 import { NodeIndexOutlined, CodeSandboxOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { useState, useRef, useLayoutEffect } from 'react';
+
+const GraphVisContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const GraphContainer = styled.div`
+  width: 100%;
   & .scene-tooltip {
     color: #eee !important;
     background: rgba(0, 0, 0, 0.65);
@@ -25,6 +33,20 @@ const buttonIconStyle = css`
 
 const NerGraph = ({ className }) => {
   const [is2D, setIs2D] = useState(true);
+  const [size, setSize] = useState({ width: 300, height: 300 });
+  const containerRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const updateSize = () =>
+      setSize({
+        height: containerRef.current.clientHeight,
+        width: containerRef.current.clientWidth,
+      });
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, [setSize]);
 
   const handleViewModeChange = (e) => setIs2D(e.target.value);
 
@@ -35,12 +57,34 @@ const NerGraph = ({ className }) => {
   };
 
   return (
-    <GraphContainer className={className}>
+    <GraphVisContainer className={className}>
+      <GraphContainer ref={containerRef}>
+        {is2D ? (
+          <ForceGraph2D
+            graphData={GraphData}
+            nodeColor={getColor}
+            {...labelProps}
+            {...size}
+          />
+        ) : (
+          <ForceGraph3D
+            graphData={GraphData}
+            nodeColor={getColor}
+            {...labelProps}
+            {...size}
+            backgroundColor="#fff"
+            linkColor={(_) => '#000'}
+          />
+        )}
+      </GraphContainer>
       <Radio.Group
         onChange={handleViewModeChange}
         optionType="button"
         buttonStyle="solid"
         value={is2D}
+        css={`
+          margin-top: 5px;
+        `}
       >
         <Radio.Button value={true}>
           <NodeIndexOutlined css={buttonIconStyle} />
@@ -51,22 +95,7 @@ const NerGraph = ({ className }) => {
           3D view
         </Radio.Button>
       </Radio.Group>
-      {is2D ? (
-        <ForceGraph2D
-          graphData={GraphData}
-          nodeColor={getColor}
-          {...labelProps}
-        />
-      ) : (
-        <ForceGraph3D
-          graphData={GraphData}
-          nodeColor={getColor}
-          {...labelProps}
-          backgroundColor="#fff"
-          linkColor={(_) => '#000'}
-        />
-      )}
-    </GraphContainer>
+    </GraphVisContainer>
   );
 };
 
