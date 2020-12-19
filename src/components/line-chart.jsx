@@ -11,6 +11,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import 'chartjs-adapter-moment';
+import styled from 'styled-components/macro';
 import { colorMap } from '../util/constants';
 
 Chart.register(
@@ -24,7 +25,13 @@ Chart.register(
   Tooltip
 );
 
+const LineChartContainer = styled.div`
+  position: relative;
+`;
+
 const lineCharOptions = {
+  maintainAspectRatio: false,
+  aspectRatio: 0.8,
   scales: {
     x: {
       type: 'time',
@@ -71,7 +78,7 @@ const lineCharOptions = {
   },
 };
 
-function LineChart({ lines }) {
+function LineChart({ lines, className }) {
   const canvasRef = useRef(null);
   const chartRef = useRef(null);
 
@@ -112,7 +119,11 @@ function LineChart({ lines }) {
     }
   }, [lines, chartRef, canvasRef]);
 
-  return <canvas ref={canvasRef} />;
+  return (
+    <LineChartContainer className={className}>
+      <canvas ref={canvasRef} />
+    </LineChartContainer>
+  );
 }
 
 export default LineChart;

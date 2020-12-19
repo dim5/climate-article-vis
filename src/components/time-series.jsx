@@ -24,7 +24,7 @@ const TimeSeriesContainer = styled.div`
   flex-direction: column;
 `;
 
-const TimeSeries = ({ entities, className }) => {
+const TimeSeries = ({ entities }) => {
   const [timeSlice, setTime] = useState(timeOptions[1].value);
 
   const store = {
@@ -48,7 +48,14 @@ const TimeSeries = ({ entities, className }) => {
 
   return (
     <TimeSeriesContainer>
-      <LineChart lines={formatData(timeSlice, entities)} />
+      <LineChart
+        lines={formatData(timeSlice, entities)}
+        css={`
+          min-height: 300px;
+          height: 100%;
+          width: 100%;
+        `}
+      />
       <StyledMenu
         options={timeOptions}
         onChange={handleTimeChange}
