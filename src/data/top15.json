@@ -1,0 +1,17 @@
+[
+  { "ent": "UNITED STATES", "cnt": 4705, "pct": 100.0 },
+  { "ent": "EARTH", "cnt": 2308, "pct": 49.05 },
+  { "ent": "AMERICA", "cnt": 1995, "pct": 42.4 },
+  { "ent": "AUSTRALIA", "cnt": 1701, "pct": 36.15 },
+  { "ent": "DONALD TRUMP", "cnt": 1682, "pct": 35.75 },
+  { "ent": "UNITED NATIONS", "cnt": 1673, "pct": 35.56 },
+  { "ent": "UNITED KINGDOM", "cnt": 1441, "pct": 30.63 },
+  { "ent": "CALIFORNIA", "cnt": 1429, "pct": 30.37 },
+  { "ent": "CHINA", "cnt": 1422, "pct": 30.22 },
+  { "ent": "PARIS AGREEMENT", "cnt": 1419, "pct": 30.16 },
+  { "ent": "EUROPE", "cnt": 1389, "pct": 29.52 },
+  { "ent": "CO2", "cnt": 1011, "pct": 21.49 },
+  { "ent": "INDIA", "cnt": 968, "pct": 20.57 },
+  { "ent": "ARCTIC", "cnt": 905, "pct": 19.23 },
+  { "ent": "EU", "cnt": 892, "pct": 18.96 }
+]

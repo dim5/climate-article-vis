@@ -21,6 +21,9 @@ const TopEntities = ({ className }) => {
             <span
               css={`
                 float: right;
+                &::after {
+                  clear: both;
+                }
               `}
             >
               {e.cnt}
