@@ -1,17 +1,22 @@
 import NerSumData from '../data/ner-sum.json';
 
 import React, { useState } from 'react';
-import { Select, Spin } from 'antd';
+import { Select } from 'antd';
 import styled from 'styled-components/macro';
 
 import TimeSeries from './time-series';
-import NerCounts from './ner-count';
+import EntityCounts from './entity-counts';
 
 const VisContainer = styled.div`
-  display: grid;
-  grid-template-rows: auto auto auto;
-  grid-template-columns: 80% 20%;
+  display: flex;
+  flex-direction: column;
   align-content: center;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: minmax(240px, 4fr) minmax(240px, 1fr);
+  }
 `;
 
 const SelectMenu = styled(Select)`
@@ -21,9 +26,7 @@ const SelectMenu = styled(Select)`
   min-width: 40%;
 `;
 
-const LazyGraph = React.lazy(() => import('./ner-graph'));
-
-const NerVisualizer = () => {
+const EntityChart = () => {
   const [selectedEntities, setSelectedEntityList] = useState([
     'AUSTRALIA',
     'CALIFORNIA',
@@ -60,30 +63,14 @@ const NerVisualizer = () => {
           align-self: center;
         `}
       />
-      <NerCounts
+      <EntityCounts
         entities={selectedEntities}
         css={`
           align-self: center;
         `}
       />
-
-      <React.Suspense
-        fallback={
-          <Spin
-            css={`
-              grid-column-start: span 2;
-            `}
-          />
-        }
-      >
-        <LazyGraph
-          css={`
-            grid-column-start: span 2;
-          `}
-        />
-      </React.Suspense>
     </VisContainer>
   );
 };
 
-export default NerVisualizer;
+export default EntityChart;

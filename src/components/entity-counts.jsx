@@ -1,9 +1,9 @@
 import NerSumData from '../data/ner-sum.json';
 
 import React from 'react';
-import DoughnutChart from '../components/doughnut-chart';
+import DoughnutChart from './doughnut-chart';
 
-const NerCounts = ({ entities, className }) => {
+const EntityCounts = ({ entities, className }) => {
   const formatData = (entities) =>
     entities.map((e) => {
       return {
@@ -19,4 +19,4 @@ const NerCounts = ({ entities, className }) => {
   );
 };
 
-export default NerCounts;
+export default EntityCounts;
