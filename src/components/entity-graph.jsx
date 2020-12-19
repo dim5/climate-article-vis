@@ -11,10 +11,18 @@ const GraphVisContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 const GraphContainer = styled.div`
   width: 100%;
+  height: 100%;
+  min-height: 60vh;
+  max-height: 100vh;
+  border-left: solid 1px rgba(153, 145, 145, 0.25);
+  border-right: solid 1px rgba(153, 145, 145, 0.25);
+  padding: 1px;
+
   & .scene-tooltip {
     color: #eee !important;
     background: rgba(0, 0, 0, 0.65);
@@ -31,7 +39,7 @@ const buttonIconStyle = css`
   margin-right: 2px;
 `;
 
-const NerGraph = ({ className }) => {
+const EntityGraph = ({ className }) => {
   const [is2D, setIs2D] = useState(true);
   const [size, setSize] = useState({ width: 300, height: 300 });
   const containerRef = useRef(null);
@@ -83,7 +91,7 @@ const NerGraph = ({ className }) => {
         buttonStyle="solid"
         value={is2D}
         css={`
-          margin-top: 5px;
+          margin-top: 0.5rem;
         `}
       >
         <Radio.Button value={true}>
@@ -99,4 +107,4 @@ const NerGraph = ({ className }) => {
   );
 };
 
-export default NerGraph;
+export default EntityGraph;
