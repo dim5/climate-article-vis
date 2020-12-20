@@ -1,4 +1,4 @@
-import GraphData from '../data/graph/graph-50-30.json';
+import GraphData from '../data/graph-50-30.json';
 import ForceGraph2D from 'react-force-graph-2d';
 import ForceGraph3D from 'react-force-graph-3d';
 import styled, { css } from 'styled-components/macro';
