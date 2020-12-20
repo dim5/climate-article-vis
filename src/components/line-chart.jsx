@@ -31,7 +31,7 @@ const LineChartContainer = styled.div`
 
 const lineCharOptions = {
   maintainAspectRatio: false,
-  aspectRatio: 0.8,
+  aspectRatio: 2.5,
   scales: {
     x: {
       type: 'time',

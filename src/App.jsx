@@ -127,7 +127,7 @@ function App() {
       </Main>
       <footer
         css={`
-          margin: 0.75rem auto 5px auto;
+          margin: 0.5rem auto 10px auto;
         `}
       >
         &copy; 2020 <a href="https://marczin.dev">marczin.dev</a>

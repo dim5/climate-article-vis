@@ -1,3 +1,4 @@
+//tab-10
 export const colorMap = [
   '#1f77b4',
   '#ff7f0e',

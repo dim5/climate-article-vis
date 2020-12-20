@@ -51,7 +51,10 @@ const TimeSeries = ({ entities }) => {
       <LineChart
         lines={formatData(timeSlice, entities)}
         css={`
-          min-height: 300px;
+          @media (min-width: 1024px) {
+            min-height: 50vh;
+          }
+          min-height: 35vh;
           height: 100%;
           width: 100%;
         `}

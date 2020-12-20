@@ -15,7 +15,7 @@ const VisContainer = styled.div`
   @media (min-width: 1024px) {
     display: grid;
     grid-template-rows: auto auto auto;
-    grid-template-columns: minmax(240px, 4fr) minmax(240px, 1fr);
+    grid-template-columns: minmax(620px, 4fr) minmax(240px, 1fr);
   }
 `;
 
@@ -66,6 +66,9 @@ const EntityChart = () => {
       <EntityCounts
         entities={selectedEntities}
         css={`
+          @media (min-width: 1024px) {
+            padding-bottom: 25px;
+          }
           align-self: center;
         `}
       />
