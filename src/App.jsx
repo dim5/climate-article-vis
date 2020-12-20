@@ -15,12 +15,16 @@ const Main = styled.main`
   max-width: 85vw;
   margin: auto;
   > * {
-    margin-bottom: 2rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.8rem;
+  }
+
+  h2 {
+    margin-bottom: 0.25rem;
   }
 `;
 
 const TextSection = styled.section`
-  margin-top: 0.5rem;
   margin-bottom: 0.25rem;
   ${(props) =>
     props.centered
@@ -40,8 +44,9 @@ function App() {
       </header>
       <Main>
         <TextSection centered>
-          I collected and analyzed more than 16000 articles about climate change
-          and global warming from November 2019 to August 2020.
+          I collected and analyzed (using various NLP methods) more than 16000
+          articles about climate change and global warming from November 2019 to
+          August 2020.
           <br /> On this page you can view some of the results.
         </TextSection>
         <div
@@ -53,9 +58,6 @@ function App() {
               & > section:nth-child(2n) {
                 padding-right: 1rem;
               }
-            }
-            & > section {
-              margin: 1rem;
             }
           `}
         >
@@ -112,7 +114,7 @@ function App() {
               <Spin
                 size="large"
                 css={`
-                  height: 100%;
+                  min-height: 60vh;
                   margin-left: 49%;
                   padding-top: 5rem;
                 `}
