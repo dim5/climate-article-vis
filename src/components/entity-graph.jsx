@@ -22,6 +22,7 @@ const GraphContainer = styled.div`
   border-left: solid 1px rgba(153, 145, 145, 0.25);
   border-right: solid 1px rgba(153, 145, 145, 0.25);
   padding: 1px;
+  overflow: hidden;
 
   & .scene-tooltip {
     color: #eee !important;
