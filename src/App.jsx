@@ -40,7 +40,7 @@ const Spinner = styled(Spin).attrs({
 })`
   margin-left: 49%;
   padding-top: 5rem;
-  min-height: ${(props) => props.minHeight};
+  min-height: ${(props) => props.minheight};
 `;
 
 function App() {
@@ -105,7 +105,7 @@ function App() {
             mentioning them is on the right. <br /> You can change the time
             resolution below the diagram.
           </TextSection>
-          <React.Suspense fallback={<Spinner minHeight="35vh" />}>
+          <React.Suspense fallback={<Spinner minheight="35vh" />}>
             <LazyChart />
           </React.Suspense>
         </div>
@@ -118,7 +118,7 @@ function App() {
             The entities are in blue, whereas the articles are orange. You can
             change view mode below the graph.
           </TextSection>
-          <React.Suspense fallback={<Spinner minHeight="60vh" />}>
+          <React.Suspense fallback={<Spinner minheight="60vh" />}>
             <LazyGraph />
           </React.Suspense>
         </div>
