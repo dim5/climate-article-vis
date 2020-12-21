@@ -52,9 +52,10 @@ const EntityGraph = ({ className }) => {
         width: containerRef.current.clientWidth,
       });
 
-    window.addEventListener('resize', updateSize);
+    window.addEventListener('resize', updateSize, { passive: true });
     updateSize();
-    return () => window.removeEventListener('resize', updateSize);
+    return () =>
+      window.removeEventListener('resize', updateSize, { passive: true });
   }, [setSize]);
 
   const handleViewModeChange = (e) => setIs2D(e.target.value);
