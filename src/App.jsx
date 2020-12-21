@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components/macro';
 import Title from './components/title';
 import TopEntities from './components/top-entities';
 import Spinner from './components/spinner';
+import Card from './components/card';
 
 const AppContainer = styled.div`
   display: flex;
@@ -11,16 +12,11 @@ const AppContainer = styled.div`
 `;
 
 const Main = styled.main`
-  max-width: 85vw;
+  @media (min-width: 1024px) {
+    max-width: 85vw;
+  }
+  max-width: 90vw;
   margin: auto;
-  > * {
-    margin-top: 0.25rem;
-    margin-bottom: 0.8rem;
-  }
-
-  h2 {
-    margin-bottom: 0.25rem;
-  }
 `;
 
 const TextSection = styled.section`
@@ -31,6 +27,11 @@ const TextSection = styled.section`
           text-align: center;
         `
       : ''}
+`;
+
+const CenteredText = styled.div`
+  margin-bottom: 0.25rem;
+  text-align: center;
 `;
 
 const LazyChart = React.lazy(() => import('./components/entity-chart'));
@@ -54,15 +55,15 @@ function App() {
             @media (min-width: 1024px) {
               display: flex;
               justify-content: space-evenly;
+              align-items: center;
 
               & > section:nth-child(2n) {
-                padding-right: 1rem;
+                margin-left: 1rem;
               }
             }
           `}
         >
-          <TextSection>
-            <h2>Common topics</h2>
+          <Card title="Common topics">
             After clustering the articles and examining the resulting clusters,
             I identified these common topics:
             <ul>
@@ -77,60 +78,68 @@ function App() {
               </li>
               <li>legal issues/battles</li>
             </ul>
-          </TextSection>
-          <TextSection>
-            <h2>Most mentioned named entities</h2>
+          </Card>
+          <Card title="Most mentioned named entities">
             These entities were the most mentioned at least once per articles
             <TopEntities
               css={`
                 margin-top: 0.25rem;
+                width: 100%;
               `}
             />
-          </TextSection>
+          </Card>
         </div>
-        <div>
-          <TextSection centered>
-            <h2>Entity occurrence over time</h2>
+        <Card title="Entity occurrence over time">
+          <CenteredText>
             Select up to five named entities and see how many articles mentioned
-            them. The total number of articles <em>
-              (from December 2019)
-            </em>{' '}
+            them. The total number of articles <em>(from December 2019)</em>{' '}
             mentioning them is on the right. <br /> You can change the time
             resolution below the diagram.
-          </TextSection>
+          </CenteredText>
           <React.Suspense
             fallback={
               <Spinner
                 css={`
                   min-height: 40vh;
+                  width: 100%;
                 `}
               />
             }
           >
-            <LazyChart />
+            <LazyChart
+              css={`
+                width: 100%;
+                height: 100%;
+              `}
+            />
           </React.Suspense>
-        </div>
-        <div>
-          <TextSection centered>
-            <h2>Named entity graph</h2>
+        </Card>
+        <Card title="Named entity graph">
+          <CenteredText>
             This bipartite graph consists of the top 50 named entities (by
             article count) and the 30 articles per entity that mentioned them
-            the most. <br />
+            the most.
+            <br />
             The entities are in blue, whereas the articles are orange. You can
             change view mode below the graph.
-          </TextSection>
+          </CenteredText>
           <React.Suspense
             fallback={
               <Spinner
                 css={`
                   min-height: 60vh;
+                  width: 100%;
                 `}
               />
             }
           >
-            <LazyGraph />
+            <LazyGraph
+              css={`
+                width: 100%;
+              `}
+            />
           </React.Suspense>
-        </div>
+        </Card>
       </Main>
       <footer
         css={`
