@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components/macro';
-import { Spin } from 'antd';
 import Title from './components/title';
 import TopEntities from './components/top-entities';
+import Spinner from './components/spinner';
 
 const AppContainer = styled.div`
   display: flex;
@@ -35,13 +35,6 @@ const TextSection = styled.section`
 
 const LazyChart = React.lazy(() => import('./components/entity-chart'));
 const LazyGraph = React.lazy(() => import('./components/entity-graph'));
-const Spinner = styled(Spin).attrs({
-  size: 'large',
-})`
-  margin-left: 49%;
-  padding-top: 5rem;
-  min-height: ${(props) => props.minHeight};
-`;
 
 function App() {
   return (
@@ -105,7 +98,15 @@ function App() {
             mentioning them is on the right. <br /> You can change the time
             resolution below the diagram.
           </TextSection>
-          <React.Suspense fallback={<Spinner minHeight="35vh" />}>
+          <React.Suspense
+            fallback={
+              <Spinner
+                css={`
+                  min-height: 40vh;
+                `}
+              />
+            }
+          >
             <LazyChart />
           </React.Suspense>
         </div>
@@ -118,7 +119,15 @@ function App() {
             The entities are in blue, whereas the articles are orange. You can
             change view mode below the graph.
           </TextSection>
-          <React.Suspense fallback={<Spinner minHeight="60vh" />}>
+          <React.Suspense
+            fallback={
+              <Spinner
+                css={`
+                  min-height: 60vh;
+                `}
+              />
+            }
+          >
             <LazyGraph />
           </React.Suspense>
         </div>
