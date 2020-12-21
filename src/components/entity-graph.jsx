@@ -1,10 +1,10 @@
-import GraphData from '../data/graph-50-30.json';
-import ForceGraph2D from 'react-force-graph-2d';
-import ForceGraph3D from 'react-force-graph-3d';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import styled, { css } from 'styled-components/macro';
+import ForceGraph2D from 'react-force-graph-2d';
 import { Radio } from 'antd';
 import { NodeIndexOutlined, CodeSandboxOutlined } from '@ant-design/icons';
-import { useState, useRef, useLayoutEffect } from 'react';
+import GraphData from '../data/graph-50-30.json';
+import Spinner from './spinner';
 
 const GraphVisContainer = styled.div`
   display: flex;
@@ -39,6 +39,9 @@ const GraphContainer = styled.div`
 const buttonIconStyle = css`
   margin-right: 2px;
 `;
+
+const import3DPromise = import('react-force-graph-3d');
+const LazyForceGraph3D = React.lazy(() => import3DPromise);
 
 const EntityGraph = ({ className }) => {
   const [is2D, setIs2D] = useState(true);
@@ -77,14 +80,16 @@ const EntityGraph = ({ className }) => {
             {...size}
           />
         ) : (
-          <ForceGraph3D
-            graphData={GraphData}
-            nodeColor={getColor}
-            {...labelProps}
-            {...size}
-            backgroundColor="#fff"
-            linkColor={(_) => '#000'}
-          />
+          <React.Suspense fallback={<Spinner />}>
+            <LazyForceGraph3D
+              graphData={GraphData}
+              nodeColor={getColor}
+              {...labelProps}
+              {...size}
+              backgroundColor="#fff"
+              linkColor={(_) => '#000'}
+            />
+          </React.Suspense>
         )}
       </GraphContainer>
       <Radio.Group
