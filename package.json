@@ -1,6 +1,6 @@
 {
   "name": "climate-article-vis",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Daniel Marczin <dim5@users.noreply.github.com>",
   "private": true,
   "dependencies": {
