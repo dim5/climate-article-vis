@@ -1,6 +1,7 @@
 import React from 'react';
-import styled, { css } from 'styled-components/macro';
-import Title from './components/title';
+import styled from 'styled-components/macro';
+import Header from './components/header';
+import Footer from './components/footer';
 import TopEntities from './components/top-entities';
 import Spinner from './components/spinner';
 import Card from './components/card';
@@ -17,21 +18,25 @@ const Main = styled.main`
   }
   max-width: 90vw;
   margin: auto;
-`;
-
-const TextSection = styled.section`
-  margin-bottom: 0.25rem;
-  ${(props) =>
-    props.centered
-      ? css`
-          text-align: center;
-        `
-      : ''}
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 `;
 
 const CenteredText = styled.div`
   margin-bottom: 0.25rem;
   text-align: center;
+`;
+
+const ShortCardContainer = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    & > section:nth-child(2n) {
+      margin-left: 1rem;
+    }
+  }
 `;
 
 const LazyChart = React.lazy(() => import('./components/entity-chart'));
@@ -40,33 +45,17 @@ const LazyGraph = React.lazy(() => import('./components/entity-graph'));
 function App() {
   return (
     <AppContainer>
-      <header>
-        <Title>Climate Article Analysis</Title>
-      </header>
+      <Header />
       <Main>
-        <TextSection centered>
-          I collected and analyzed (using various NLP methods) more than 16000
-          articles about climate change and global warming from November 2019 to
-          August 2020.
-          <br /> On this page you can view some of the results.
-        </TextSection>
-        <div
-          css={`
-            @media (min-width: 1024px) {
-              display: flex;
-              justify-content: space-evenly;
-              align-items: center;
-
-              & > section:nth-child(2n) {
-                margin-left: 1rem;
-              }
-            }
-          `}
-        >
+        <ShortCardContainer>
           <Card title="Common topics">
             After clustering the articles and examining the resulting clusters,
             I identified these common topics:
-            <ul>
+            <ul
+              css={`
+                margin-right: auto;
+              `}
+            >
               <li>wildfires</li>
               <li>the fate of the Arctic </li>
               <li>the COVID-19 pandemic and its effects on the environment</li>
@@ -88,7 +77,7 @@ function App() {
               `}
             />
           </Card>
-        </div>
+        </ShortCardContainer>
         <Card title="Entity occurrence over time">
           <CenteredText>
             Select up to five named entities and see how many articles mentioned
@@ -101,7 +90,6 @@ function App() {
               <Spinner
                 css={`
                   min-height: 40vh;
-                  width: 100%;
                 `}
               />
             }
@@ -120,15 +108,14 @@ function App() {
             article count) and the 30 articles per entity that mentioned them
             the most.
             <br />
-            The entities are in blue, whereas the articles are orange. You can
-            change view mode below the graph.
+            The entities are in blue, the articles are orange. You can change
+            the view mode below the graph.
           </CenteredText>
           <React.Suspense
             fallback={
               <Spinner
                 css={`
                   min-height: 60vh;
-                  width: 100%;
                 `}
               />
             }
@@ -141,13 +128,7 @@ function App() {
           </React.Suspense>
         </Card>
       </Main>
-      <footer
-        css={`
-          margin: 0.5rem auto 10px auto;
-        `}
-      >
-        &copy; 2020 <a href="https://marczin.dev">marczin.dev</a>
-      </footer>
+      <Footer />
     </AppContainer>
   );
 }
