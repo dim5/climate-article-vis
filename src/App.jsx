@@ -1,8 +1,10 @@
 import React from 'react';
-import styled, { css } from 'styled-components/macro';
-import Title from './components/title';
+import styled from 'styled-components/macro';
+import Header from './components/header';
+import Footer from './components/footer';
 import TopEntities from './components/top-entities';
 import Spinner from './components/spinner';
+import Card from './components/card';
 
 const AppContainer = styled.div`
   display: flex;
@@ -11,26 +13,30 @@ const AppContainer = styled.div`
 `;
 
 const Main = styled.main`
-  max-width: 85vw;
+  @media (min-width: 1024px) {
+    max-width: 85vw;
+  }
+  max-width: 90vw;
   margin: auto;
-  > * {
-    margin-top: 0.25rem;
-    margin-bottom: 0.8rem;
-  }
-
-  h2 {
-    margin-bottom: 0.25rem;
-  }
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 `;
 
-const TextSection = styled.section`
+const CenteredText = styled.div`
   margin-bottom: 0.25rem;
-  ${(props) =>
-    props.centered
-      ? css`
-          text-align: center;
-        `
-      : ''}
+  text-align: center;
+`;
+
+const ShortCardContainer = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    & > section:nth-child(2n) {
+      margin-left: 1rem;
+    }
+  }
 `;
 
 const LazyChart = React.lazy(() => import('./components/entity-chart'));
@@ -39,33 +45,17 @@ const LazyGraph = React.lazy(() => import('./components/entity-graph'));
 function App() {
   return (
     <AppContainer>
-      <header>
-        <Title>Climate Article Analysis</Title>
-      </header>
+      <Header />
       <Main>
-        <TextSection centered>
-          I collected and analyzed (using various NLP methods) more than 16000
-          articles about climate change and global warming from November 2019 to
-          August 2020.
-          <br /> On this page you can view some of the results.
-        </TextSection>
-        <div
-          css={`
-            @media (min-width: 1024px) {
-              display: flex;
-              justify-content: space-evenly;
-
-              & > section:nth-child(2n) {
-                padding-right: 1rem;
-              }
-            }
-          `}
-        >
-          <TextSection>
-            <h2>Common topics</h2>
+        <ShortCardContainer>
+          <Card title="Common topics">
             After clustering the articles and examining the resulting clusters,
             I identified these common topics:
-            <ul>
+            <ul
+              css={`
+                margin-right: auto;
+              `}
+            >
               <li>wildfires</li>
               <li>the fate of the Arctic </li>
               <li>the COVID-19 pandemic and its effects on the environment</li>
@@ -77,27 +67,24 @@ function App() {
               </li>
               <li>legal issues/battles</li>
             </ul>
-          </TextSection>
-          <TextSection>
-            <h2>Most mentioned named entities</h2>
+          </Card>
+          <Card title="Most mentioned named entities">
             These entities were the most mentioned at least once per articles
             <TopEntities
               css={`
                 margin-top: 0.25rem;
+                width: 100%;
               `}
             />
-          </TextSection>
-        </div>
-        <div>
-          <TextSection centered>
-            <h2>Entity occurrence over time</h2>
+          </Card>
+        </ShortCardContainer>
+        <Card title="Entity occurrence over time">
+          <CenteredText>
             Select up to five named entities and see how many articles mentioned
-            them. The total number of articles <em>
-              (from December 2019)
-            </em>{' '}
+            them. The total number of articles <em>(from December 2019)</em>{' '}
             mentioning them is on the right. <br /> You can change the time
             resolution below the diagram.
-          </TextSection>
+          </CenteredText>
           <React.Suspense
             fallback={
               <Spinner
@@ -107,18 +94,23 @@ function App() {
               />
             }
           >
-            <LazyChart />
+            <LazyChart
+              css={`
+                width: 100%;
+                height: 100%;
+              `}
+            />
           </React.Suspense>
-        </div>
-        <div>
-          <TextSection centered>
-            <h2>Named entity graph</h2>
+        </Card>
+        <Card title="Named entity graph">
+          <CenteredText>
             This bipartite graph consists of the top 50 named entities (by
             article count) and the 30 articles per entity that mentioned them
-            the most. <br />
-            The entities are in blue, whereas the articles are orange. You can
-            change view mode below the graph.
-          </TextSection>
+            the most.
+            <br />
+            The entities are in blue, the articles are orange. You can change
+            the view mode below the graph.
+          </CenteredText>
           <React.Suspense
             fallback={
               <Spinner
@@ -128,17 +120,15 @@ function App() {
               />
             }
           >
-            <LazyGraph />
+            <LazyGraph
+              css={`
+                width: 100%;
+              `}
+            />
           </React.Suspense>
-        </div>
+        </Card>
       </Main>
-      <footer
-        css={`
-          margin: 0.5rem auto 10px auto;
-        `}
-      >
-        &copy; 2020 <a href="https://marczin.dev">marczin.dev</a>
-      </footer>
+      <Footer />
     </AppContainer>
   );
 }

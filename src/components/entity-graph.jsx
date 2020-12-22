@@ -19,9 +19,6 @@ const GraphContainer = styled.div`
   height: 100%;
   min-height: 60vh;
   max-height: 100vh;
-  border-left: solid 1px rgba(153, 145, 145, 0.25);
-  border-right: solid 1px rgba(153, 145, 145, 0.25);
-  padding: 1px;
   overflow: hidden;
 
   & .scene-tooltip {
