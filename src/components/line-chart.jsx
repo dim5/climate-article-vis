@@ -10,7 +10,7 @@ import {
   Legend,
   Tooltip,
 } from 'chart.js';
-import 'chartjs-adapter-moment';
+import 'chartjs-adapter-date-fns';
 import styled from 'styled-components/macro';
 import { colorMap } from '../util/constants';
 
@@ -54,7 +54,7 @@ const lineCharOptions = {
       },
       time: {
         minUnit: 'day',
-        tooltipFormat: 'MMMM D, YYYY',
+        tooltipFormat: 'MMMM d, yyyy',
       },
     },
 
