@@ -26,7 +26,7 @@ const SelectMenu = styled(Select)`
   min-width: 40%;
 `;
 
-const EntityChart = () => {
+const EntityChart = ({ className }) => {
   const [selectedEntities, setSelectedEntityList] = useState([
     'AUSTRALIA',
     'CALIFORNIA',
@@ -40,7 +40,7 @@ const EntityChart = () => {
   const selectLabels = Object.keys(NerSumData);
 
   return (
-    <VisContainer>
+    <VisContainer className={className}>
       <SelectMenu
         showSearch
         placeholder="Select a named entity"
