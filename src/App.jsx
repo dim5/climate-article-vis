@@ -69,7 +69,7 @@ function App() {
             </ul>
           </Card>
           <Card title="Most mentioned named entities">
-            These entities were the most mentioned at least once per articles
+            These entities appeared in the most articles
             <TopEntities
               css={`
                 margin-top: 0.25rem;
