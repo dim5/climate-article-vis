@@ -14,9 +14,9 @@ const AppContainer = styled.div`
 
 const Main = styled.main`
   @media (min-width: 1024px) {
-    max-width: 85vw;
+    width: 85vw;
   }
-  max-width: 90vw;
+  width: 90vw;
   margin: auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
