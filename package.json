@@ -50,7 +50,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.2",
     "babel-plugin-styled-components": "^1.12.0",
-    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
     "glob-all": "^3.2.1",
     "husky": "^4.3.5",
     "lint-staged": "^10.5.3",
