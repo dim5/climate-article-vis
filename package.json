@@ -11,7 +11,7 @@
     "antd": "^4.9.2",
     "chart.js": "^3.0.0-beta.7",
     "chartjs-adapter-date-fns": "^1.1.0-alpha.3",
-    "date-fns": "^2.16.1",
+    "date-fns": "^2.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-force-graph-2d": "^1.18.1",
