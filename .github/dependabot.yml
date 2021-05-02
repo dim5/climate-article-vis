@@ -1,0 +1,47 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  target-branch: dev
+  ignore:
+  - dependency-name: husky
+    versions:
+    - ">= 5.1.a, < 5.2"
+  - dependency-name: chart.js
+    versions:
+    - 3.0.0-beta.12
+    - 3.0.0-beta.9
+  - dependency-name: react-force-graph-2d
+    versions:
+    - 1.18.2
+    - 1.19.0
+  - dependency-name: antd
+    versions:
+    - 4.11.2
+    - 4.13.0
+  - dependency-name: "@testing-library/react"
+    versions:
+    - 11.2.3
+    - 11.2.5
+  - dependency-name: "@ant-design/icons"
+    versions:
+    - 4.4.0
+    - 4.5.0
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 7.2.0
+  - dependency-name: web-vitals
+    versions:
+    - 1.1.0
+  - dependency-name: "@fullhuman/postcss-purgecss"
+    versions:
+    - 4.0.0
+  - dependency-name: husky
+    versions:
+    - 4.3.8
+  - dependency-name: "@testing-library/jest-dom"
+    versions:
+    - 5.11.8
