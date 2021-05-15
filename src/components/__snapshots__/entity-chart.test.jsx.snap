@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<div>
+  <div
+    class="entity-chart__VisContainer-h3x1ek-0 hAaeCP"
+  >
+    <div
+      class="ant-select entity-chart__SelectMenu-h3x1ek-1 eICxgC menu ant-select-multiple ant-select-show-arrow ant-select-show-search"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-item"
+        >
+          <span
+            class="ant-select-selection-item-content"
+          >
+            AUSTRALIA
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select: none;"
+            unselectable="on"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <span
+          class="ant-select-selection-item"
+        >
+          <span
+            class="ant-select-selection-item-content"
+          >
+            CALIFORNIA
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select: none;"
+            unselectable="on"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <span
+          class="ant-select-selection-search"
+          style="width: 0px;"
+        >
+          <input
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-search-mirror"
+          >
+            
+             
+          </span>
+        </span>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="time-series__TimeSeriesContainer-sc-1efg098-1 dKPNlD"
+    >
+      <div
+        class="line-chart__LineChartContainer-sc-12ede8g-0 bCToO time-series___StyledLineChart-sc-1efg098-2 ccdaRm"
+      >
+        <canvas
+          height="0"
+          style="display: block; box-sizing: border-box; width: 0px; height: 0px;"
+          width="0"
+        />
+      </div>
+      <div
+        class="ant-radio-group ant-radio-group-solid time-series__StyledMenu-sc-1efg098-0 jLbcMb"
+      >
+        <label
+          class="ant-radio-button-wrapper"
+        >
+          <span
+            class="ant-radio-button"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="day"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            Daily
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        >
+          <span
+            class="ant-radio-button ant-radio-button-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-button-input"
+              type="radio"
+              value="week"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            Weekly
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper"
+        >
+          <span
+            class="ant-radio-button"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="month"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            Monthly
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="entity-chart___StyledEntityCounts-h3x1ek-3 dSvPeT"
+    >
+      <canvas
+        height="0"
+        style="display: block; box-sizing: border-box; width: 0px; height: 0px;"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
