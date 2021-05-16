@@ -47,7 +47,7 @@ const lineCharOptions = {
         font: function (context) {
           if (context.tick && context.tick.major) {
             return {
-              style: 'bold',
+              weight: 'bold',
             };
           }
         },
