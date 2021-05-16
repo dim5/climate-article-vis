@@ -47,7 +47,7 @@ const lineCharOptions = {
         font: function (context) {
           if (context.tick && context.tick.major) {
             return {
-              style: 'bold',
+              weight: 'bold',
             };
           }
         },
@@ -78,7 +78,7 @@ const lineCharOptions = {
   },
 };
 
-function LineChart({ lines, className }) {
+const LineChart = ({ lines, className }) => {
   const canvasRef = useRef(null);
   const chartRef = useRef(null);
 
@@ -124,6 +124,6 @@ function LineChart({ lines, className }) {
       <canvas ref={canvasRef} />
     </LineChartContainer>
   );
-}
+};
 
 export default LineChart;
